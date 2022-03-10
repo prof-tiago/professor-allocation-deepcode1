@@ -37,9 +37,17 @@ public class AllocationService {
 		Allocation allocation = optional.orElse(null);
 		return allocation;
 	}
+	
+	public List<Allocation> findByProfessor(Long professorId) {
+        return allocationRepository.findByProfessorId(professorId);
+    }
+
+    public List<Allocation> findByCourse(Long courseId) {
+        return allocationRepository.findByCourseId(courseId);
+    }
 
 	// CRUD: CREATE
-	public Allocation create(Allocation allocation) {
+	public Allocation save(Allocation allocation) {
 		allocation.setId(null);
 		return saveInternal(allocation);
 	}
